@@ -149,7 +149,7 @@ class AssetsController extends Controller
         }
 
         if ($request->input('requestable') == 'true') {
-            $assets->where('assets.requestable', '=', '1');
+            $assets->where('assets.requestable', '=', '1')->whereNull('assets.assigned_to');
         }
 
         if ($request->filled('model_id')) {
